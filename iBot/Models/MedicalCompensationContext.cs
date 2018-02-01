@@ -13,6 +13,6 @@ namespace iBot.Models
         {
         }
 
-        public DbSet<MedicalCompensation> Form { get; set; }
+        public DbSet<MedicalCompensationModel> Form { get; set; }
     }
 }
