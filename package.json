@@ -1,0 +1,22 @@
+{
+  "name": "ibot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psych3/iBot.git"
+  },
+  "author": "jon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psych3/iBot/issues"
+  },
+  "homepage": "https://github.com/psych3/iBot#readme",
+  "devDependencies": {
+    "request": "^2.83.0"
+  }
+}
