@@ -1,0 +1,64 @@
+﻿@page
+@model iBot.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>MedicalCompensationModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MedicalCompensationModel.NDCno" class="control-label"></label>
+                <input asp-for="MedicalCompensationModel.NDCno" class="form-control" />
+                <span asp-validation-for="MedicalCompensationModel.NDCno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalCompensationModel.MDUnits" class="control-label"></label>
+                <input asp-for="MedicalCompensationModel.MDUnits" class="form-control" />
+                <span asp-validation-for="MedicalCompensationModel.MDUnits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalCompensationModel.PriceBilled" class="control-label"></label>
+                <input asp-for="MedicalCompensationModel.PriceBilled" class="form-control" />
+                <span asp-validation-for="MedicalCompensationModel.PriceBilled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalCompensationModel.DateOfCurrentDay" class="control-label"></label>
+                <input asp-for="MedicalCompensationModel.DateOfCurrentDay" class="form-control" />
+                <span asp-validation-for="MedicalCompensationModel.DateOfCurrentDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="MedicalCompensationModel.NursingHome" /> @Html.DisplayNameFor(model => model.MedicalCompensationModel.NursingHome))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="MedicalCompensationModel.Brand" /> @Html.DisplayNameFor(model => model.MedicalCompensationModel.Brand))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
