@@ -11,6 +11,7 @@ namespace iBot.Models
         public MedicalCompensationContext(DbContextOptions<MedicalCompensationContext> options)
             : base(options)
         {
+
         }
 
         public DbSet<MedicalCompensationModel> MedicalCompensationModel { get; set; }

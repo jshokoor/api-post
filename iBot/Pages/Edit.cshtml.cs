@@ -16,6 +16,7 @@ namespace iBot.Pages
         public EditModel(iBot.Models.MedicalCompensationContext context)
         {
             _context = context;
+            context.Database.EnsureCreated();
         }
 
         public IActionResult OnGet()
@@ -36,7 +37,7 @@ namespace iBot.Pages
             _context.MedicalCompensationModel.Add(MedicalCompensationModel);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Edit",MedicalCompensationModel);
         }
     }
 }
