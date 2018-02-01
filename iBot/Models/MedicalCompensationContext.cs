@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace iBot.Models
 {
-    public class FormContext : DbContext
+    public class MedicalCompensationContext : DbContext
     {
-        public FormContext(DbContextOptions<FormContext> options)
+        public MedicalCompensationContext(DbContextOptions<MedicalCompensationContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Form> Form { get; set; }
+        public DbSet<MedicalCompensation> Form { get; set; }
     }
 }

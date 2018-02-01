@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iBot.Models
 {
-    public class Form
+    public class MedicalCompensation
     {
         public int ID { get; set; }
         [Display(Name = "NDC Number")]

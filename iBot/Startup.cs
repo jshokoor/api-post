@@ -23,7 +23,7 @@ namespace iBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FormContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FormContext")));
+            services.AddDbContext<MedicalCompensationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FormContext")));
 
             services.AddMvc();
         }
