@@ -1,11 +1,12 @@
 
 var request = require('request');
 
-var $ = require('jquery');
+var express = require('express');
+var app = express();
+app.set('view engine', 'ejs');
 
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync')
-
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 
@@ -13,8 +14,14 @@ db.defaults({ posts: [], user: {} })
     .write()
 
 // vars that end in 'AsInt' should be changed to 'AsFloat'
+// input variables
+var nDCNumber = "55111068405";
+var metricDecimalNumberOfUnits = "50";
 var usualAndCustomaryPriceAsInt = 13.12;
 var usualAndCustomaryPrice = "$13.12"
+var dateOfServiceInput = "01/31/2018";
+
+// variables that will be used in calculating final price
 var totalOfIngredientsAsInt;
 var totalOfIngredients;
 var mediCalDispensingFeeAsInt = 7.25;
@@ -26,10 +33,10 @@ var finalPrice;
 request.post({
     url: 'https://www.dir.ca.gov/dwc/pharmfeesched/pfs.asp',
     form: {
-        NDCno: '55111068405',
-        MDUnits: '50',
+        NDCno: nDCNumber,
+        MDUnits: metricDecimalNumberOfUnits,
         PriceBilled: usualAndCustomaryPrice,
-        DateOfService: '01/31/2018'
+        DateOfService: dateOfServiceInput
     }
     },
     function (err, httpResponse, body) {
@@ -82,9 +89,21 @@ request.post({
         
         console.log(arrayOfCleanValues);
 
+        app.get('/', function(req, res) {
+            var newArrayForRender = arrayOfCleanValues;
+
+            res.render('pages/index', {
+                newArrayForRender : newArrayForRender
+            });
+        });
+
         db.get('posts')
             .push({ output: arrayOfCleanValues })
             .write()
+
+
     })
 
 //document.getElementById('firstBox').value = arrayOfCleanValues;
+
+app.listen(8080);
